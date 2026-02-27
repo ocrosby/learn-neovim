@@ -1,0 +1,378 @@
+# Exercise 1: Text Objects
+
+Text objects let you operate on structured chunks of text (words, sentences, paragraphs, brackets). This is where Vim becomes truly powerful.
+
+GOAL: Learn to think "verb + preposition + noun" (e.g., "delete inside word").
+
+==============================================================================
+PART 1: WORD TEXT OBJECTS (iw and aw)
+==============================================================================
+
+'iw' = inner word (just the word)
+'aw' = a word (word + surrounding space)
+
+Task 1.1: Delete inner word with 'diw':
+Place cursor ANYWHERE in 'middle', press 'diw':
+
+The middle word should disappear
+
+Task 1.2: Delete a word with 'daw' (includes space):
+Place cursor anywhere in 'this', press 'daw':
+
+Delete this word from the sentence
+
+Task 1.3: Change inner word with 'ciw':
+Place cursor in 'old', press 'ciw', type 'new', press Esc:
+
+Replace the old value with something
+
+Task 1.4: Yank a word with 'yaw':
+Place cursor in 'copy', press 'yaw', move to [PASTE], press 'p':
+
+copy this word [PASTE HERE]
+
+Notice: You don't need to be at the start of the word!
+
+==============================================================================
+PART 2: SENTENCE TEXT OBJECTS (is and as)
+==============================================================================
+
+'is' = inner sentence
+'as' = a sentence (includes trailing space)
+
+Task 2.1: Delete inner sentence with 'dis':
+Place cursor ANYWHERE in second sentence, press 'dis':
+
+Keep this sentence. Delete this sentence. Keep this one too.
+
+Task 2.2: Change a sentence with 'cas':
+Place cursor in second sentence, press 'cas', type 'New sentence.', Esc:
+
+First sentence. Change this sentence. Third sentence.
+
+==============================================================================
+PART 3: PARAGRAPH TEXT OBJECTS (ip and ap)
+==============================================================================
+
+'ip' = inner paragraph
+'ap' = a paragraph (includes trailing newline)
+
+Task 3.1: Delete inner paragraph with 'dip':
+Place cursor ANYWHERE in middle paragraph, press 'dip':
+
+This is paragraph one.
+It stays.
+
+This is paragraph two.
+It should be deleted.
+
+This is paragraph three.
+It stays too.
+
+Task 3.2: Yank a paragraph with 'yap':
+Place cursor in paragraph below, press 'yap', move to end, press 'p':
+
+Copy this entire paragraph.
+All lines included.
+
+==============================================================================
+PART 4: QUOTE TEXT OBJECTS (i" a" i' a')
+==============================================================================
+
+'i"' = inside double quotes
+'a"' = around double quotes (includes quotes)
+'i'' = inside single quotes
+'a'' = around single quotes
+
+Task 4.1: Delete inside quotes with 'di"':
+Place cursor ANYWHERE inside quotes, press 'di"':
+
+The message is "delete this content" today
+
+Task 4.2: Change around quotes with 'ca"':
+Place cursor inside quotes, press 'ca"', type 'new message', Esc:
+
+She said "change this quote" yesterday
+
+Task 4.3: Yank inside single quotes with 'yi'':
+Place cursor inside quotes, press 'yi'', move to [PASTE], press 'p':
+
+const name = 'John Doe'; // [PASTE HERE]
+
+==============================================================================
+PART 5: PARENTHESES TEXT OBJECTS (i( a( i) a))
+==============================================================================
+
+'i(' or 'i)' or 'ib' = inside parentheses
+'a(' or 'a)' or 'ab' = around parentheses (includes parens)
+
+Task 5.1: Delete inside parentheses with 'di(':
+Place cursor inside (), press 'di(':
+
+function calculate(remove this content) {
+
+Task 5.2: Change around parentheses with 'ca(':
+Place cursor inside (), press 'ca(', type 'x, y', Esc:
+
+result = add(a, b)
+
+Task 5.3: Yank inside nested parentheses with 'yi(':
+Place cursor in inner (), press 'yi(', move to [PASTE], press 'p':
+
+value = calculate(add(1, 2), 3) [PASTE HERE]
+
+==============================================================================
+PART 6: BRACKET TEXT OBJECTS (i[ a[ i] a])
+==============================================================================
+
+'i[' or 'i]' = inside square brackets
+'a[' or 'a]' = around square brackets
+
+Task 6.1: Delete inside brackets with 'di[':
+Place cursor inside [], press 'di[':
+
+const array = [delete, these, items]
+
+Task 6.2: Change inside brackets with 'ci[':
+Place cursor inside [], press 'ci[', type '1, 2, 3', Esc:
+
+const numbers = [old, data, here]
+
+==============================================================================
+PART 7: BRACE TEXT OBJECTS (i{ a{ iB aB)
+==============================================================================
+
+'i{' or 'i}' or 'iB' = inside braces
+'a{' or 'a}' or 'aB' = around braces
+
+Task 7.1: Delete inside braces with 'di{':
+Place cursor inside {}, press 'di{':
+
+function example() { delete this code }
+
+Task 7.2: Visual select inside braces with 'vi{':
+Place cursor inside {}, press 'vi{', then 'y' to yank:
+
+if (true) {
+    console.log("select all this");
+    return value;
+}
+
+==============================================================================
+PART 8: TAG TEXT OBJECTS (it and at)
+==============================================================================
+
+'it' = inside HTML/XML tags
+'at' = around tags (includes tags)
+
+Task 8.1: Delete inside tag with 'dit':
+Place cursor between tags, press 'dit':
+
+<div>Delete this content</div>
+
+Task 8.2: Change inside tag with 'cit':
+Place cursor between tags, press 'cit', type 'New content', Esc:
+
+<p>Old content here</p>
+
+Task 8.3: Delete around tag with 'dat':
+Place cursor anywhere in element, press 'dat':
+
+<h1>Delete entire element</h1>
+
+==============================================================================
+PART 9: COMBINING TEXT OBJECTS WITH OPERATORS
+==============================================================================
+
+Practice all operators with text objects:
+
+d + text object = delete
+c + text object = change
+y + text object = yank
+v + text object = visual select
+
+Task 9.1: Complete this table by performing the operation:
+
+Original: The "quick" brown fox
+diw on "quick": _________________
+
+Original: function(arg1, arg2)
+ci(: _________________
+
+Original: [1, 2, 3, 4, 5]
+ya[: (yank and paste here) _________________
+
+Original: This is a sentence. Another sentence.
+das: _________________
+
+==============================================================================
+PART 10: TEXT OBJECT MASTERY CHALLENGE
+==============================================================================
+
+Fix this code using ONLY text objects (no motions):
+
+const person = {
+    name: "old_name",
+    age: 25,
+    email: "wrong_email@old.com"
+};
+
+Tasks:
+1. Change "old_name" to "John" - use ci"
+2. Change 25 to 30 - use ciw
+3. Delete email line entirely - use dip or dd
+4. Add new property: yank name line, paste, change
+
+==============================================================================
+PART 11: INNER VS AROUND COMPARISON
+==============================================================================
+
+Understand the difference:
+
+Text: delete (this content) completely
+
+'di(' result: delete () completely
+'da(' result: delete completely
+
+Text: The "message" here
+
+'di"' result: The "" here
+'da"' result: The here
+
+Task: Practice both on each example below:
+
+Example 1: [item1, item2, item3]
+Try: di[ then undo with u, then try da[
+
+Example 2: 'hello world'
+Try: di' then undo, then try da'
+
+Example 3: {key: value}
+Try: di{ then undo, then try da{
+
+==============================================================================
+PART 12: NESTED TEXT OBJECTS
+==============================================================================
+
+Text objects work from anywhere inside, even deeply nested:
+
+Task 12.1: Delete inside outer parentheses:
+Place cursor on 'inner', press 'di(':
+
+calculate(add(inner, value), multiply(x, y))
+
+Task 12.2: For nested structures, press 'di(' multiple times:
+
+outer(middle(inner(deepest)))
+
+Each 'di(' removes one level.
+
+==============================================================================
+PART 13: PRACTICAL CODE EDITING
+==============================================================================
+
+Use text objects to refactor this code:
+
+function processData(inputData) {
+    const result = transform(inputData);
+    console.log("Processing complete");
+    return result;
+}
+
+Tasks:
+1. Change function name: ciw on "processData"
+2. Change parameter name: ciw on "inputData"
+3. Change string message: ci" on the message
+4. Delete the console.log line: dip or dd
+5. Change what's returned: ciw on "result"
+
+==============================================================================
+PART 14: TEXT OBJECTS WITH VISUAL MODE
+==============================================================================
+
+Visual mode + text objects = powerful selection.
+
+Task 14.1: Visual select inner word:
+Place cursor on word, press 'viw':
+
+select this entire word precisely
+
+Task 14.2: Visual select around paragraph:
+Place cursor in paragraph, press 'vap':
+
+Select this entire paragraph.
+Including all lines.
+Until the blank line.
+
+Task 14.3: Visual select inner braces:
+Place cursor inside {}, press 'vi{', then 'y':
+
+if (condition) {
+    select all;
+    this code;
+}
+
+==============================================================================
+PART 15: TEXT OBJECT SPEEDRUN
+==============================================================================
+
+For each task below, write the command you'd use:
+
+1. Delete word under cursor: _______
+2. Change text inside quotes: _______
+3. Yank entire sentence: _______
+4. Delete inside parentheses: _______
+5. Change entire paragraph: _______
+6. Delete around brackets: _______
+7. Visual select inside braces: _______
+8. Change inside HTML tag: _______
+
+Answers:
+1. diw  2. ci"  3. yis or yas  4. di(  5. cip  6. da[  7. vi{  8. cit
+
+==============================================================================
+COMPLETION CHECKLIST
+==============================================================================
+
+You've mastered text objects when you can:
+[ ] Use inner vs around text objects (i vs a)
+[ ] Operate on words without precise positioning (diw, ciw)
+[ ] Edit inside quotes/brackets without selecting (ci", di()
+[ ] Work with nested structures
+[ ] Combine any operator with any text object
+[ ] Prefer text objects over motions for structured text
+[ ] Use text objects automatically in daily editing
+
+==============================================================================
+NEXT STEPS
+==============================================================================
+
+1. Practice text objects on real code for 1-2 days
+2. Move to Exercise 2: Registers
+3. Review: docs/02-intermediate/text-objects.md
+4. Learn custom text objects (plugins) later
+
+Text objects are THE killer feature of Vim. Master them!
+
+==============================================================================
+TEXT OBJECT REFERENCE CARD
+==============================================================================
+
+Words:         iw aw
+Sentences:     is as
+Paragraphs:    ip ap
+Quotes:        i" a" i' a' i` a`
+Parentheses:   i( a( i) a) ib ab
+Brackets:      i[ a[ i] a]
+Braces:        i{ a{ i} a} iB aB
+Tags:          it at
+
+Pattern: {operator}{i or a}{object}
+
+Examples:
+diw = delete inner word
+ca" = change around quotes
+yi( = yank inside parentheses
+vip = visual select inner paragraph
+
+==============================================================================

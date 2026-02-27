@@ -1,0 +1,351 @@
+# Exercise 3: Basic Editing
+
+Master Neovim's editing operators and learn to combine them with motions for efficient text manipulation.
+
+GOAL: Learn to think in "operator + motion" patterns instead of character-by-character editing.
+
+==============================================================================
+PART 1: DELETE OPERATOR (d + motion)
+==============================================================================
+
+The 'd' operator deletes text specified by the following motion.
+
+Task 1.1: Delete one word with 'dw' (delete word).
+Place cursor on 'remove' and press 'dw':
+
+remove this entire word from the sentence
+
+Task 1.2: Delete to end of line with 'd$':
+Place cursor on 'DELETE' and press 'd$':
+
+Keep this part DELETE everything from here to the end
+
+Task 1.3: Delete inside parentheses with 'di(':
+Place cursor anywhere inside the () and press 'di(':
+
+The result is (delete this content) and keep the rest
+
+Task 1.4: Delete current line with 'dd':
+Place cursor on the line below and press 'dd':
+
+DELETE THIS ENTIRE LINE
+Keep this line
+
+Pattern: d{motion} = delete from cursor to where motion takes you
+
+==============================================================================
+PART 2: CHANGE OPERATOR (c + motion)
+==============================================================================
+
+The 'c' operator deletes AND puts you in Insert mode.
+
+Task 2.1: Change a word with 'cw':
+Place cursor on 'old', press 'cw', type 'new', press Esc:
+
+This is old text
+
+Task 2.2: Change to end of line with 'c$':
+Place cursor on 'CHANGE', press 'c$', type 'better ending', press Esc:
+
+This is a CHANGE this part
+
+Task 2.3: Change inside quotes with 'ci"':
+Place cursor inside the quotes, press 'ci"', type 'new content', press Esc:
+
+The message says "old content" today
+
+Task 2.4: Change entire line with 'cc':
+Place cursor on line below, press 'cc', type 'Brand new line', press Esc:
+
+Replace this entire line with something else
+
+Pattern: c{motion} = delete and enter Insert mode
+
+==============================================================================
+PART 3: YANK (COPY) OPERATOR (y + motion)
+==============================================================================
+
+The 'y' operator yanks (copies) text without deleting it.
+
+Task 3.1: Yank a word with 'yw':
+Place cursor on 'copy', press 'yw', move to [PASTE], press 'p':
+
+copy this word [PASTE HERE]
+
+Task 3.2: Yank entire line with 'yy':
+Place cursor on line below, press 'yy', move down, press 'p':
+
+Copy this entire line
+
+Task 3.3: Yank inside brackets with 'yi[':
+Place cursor inside [], press 'yi[', move to [PASTE], press 'p':
+
+The array is [item1, item2, item3] [PASTE HERE]
+
+Pattern: y{motion} = copy, then use 'p' to paste
+
+==============================================================================
+PART 4: PASTE (p and P)
+==============================================================================
+
+Task 4.1: Delete and paste with 'p' (paste AFTER cursor):
+Delete 'MOVE' with 'dw', move to end, press 'p':
+
+MOVE this word to the end
+
+Task 4.2: Paste before with 'P' (paste BEFORE cursor):
+Yank 'START' with 'yw', move to 'END', press 'P':
+
+END this word should be at START
+
+==============================================================================
+PART 5: USING COUNTS WITH OPERATORS
+==============================================================================
+
+Combine numbers with operators for power!
+
+Task 5.1: Delete 3 words with '3dw':
+Place cursor on 'one', press '3dw':
+
+one two three four five
+
+Task 5.2: Delete 2 lines with '2dd':
+Place cursor on first line below, press '2dd':
+
+Delete me
+Delete me too
+Keep me
+
+Task 5.3: Change 4 words with '4cw':
+Place cursor on 'one', press '4cw', type 'changed', press Esc:
+
+one two three four five six
+
+Pattern: {count}{operator}{motion}
+
+==============================================================================
+PART 6: REPEAT COMMAND (.)
+==============================================================================
+
+The '.' command repeats your last change.
+
+Task 6.1: Delete 'remove' with 'dw', then use '.' on each other 'remove':
+
+remove keep remove keep remove keep
+
+After first 'dw', just press '.' on each 'remove' word!
+
+Task 6.2: Change 'old' to 'new' with 'cw':
+Change first 'old', then use '.' on others:
+
+old value, old data, old file, old record
+
+==============================================================================
+PART 7: UNDO AND REDO (u and Ctrl-r)
+==============================================================================
+
+Task 7.1: Make changes below, then practice undo:
+- Delete a word
+- Press 'u' to undo
+- Press 'Ctrl-r' to redo
+- Press 'u' multiple times to undo multiple changes
+
+Practice here - make any changes you want:
+
+experiment freely here because you can always undo
+
+==============================================================================
+PART 8: VISUAL MODE EDITING
+==============================================================================
+
+Task 8.1: Visual select and delete:
+Press 'v', select 'DELETE THIS', press 'd':
+
+Keep this DELETE THIS keep this too
+
+Task 8.2: Visual select and change:
+Press 'v', select 'change me', press 'c', type 'changed', press Esc:
+
+The text says change me right here
+
+Task 8.3: Visual line select and yank:
+Press 'V', select 2 lines below, press 'y', move down, press 'p':
+
+Copy line 1
+Copy line 2
+
+==============================================================================
+PART 9: COMMON EDITING PATTERNS
+==============================================================================
+
+Practice these frequent patterns:
+
+Pattern 1: Delete to character
+Task: Delete from cursor to '@': df@
+
+delete everything until this @ symbol appears
+
+Pattern 2: Change inside tags
+Task: Change content between tags: cit (change inside tag)
+
+<div>change this content</div>
+
+Pattern 3: Delete around word
+Task: Delete entire word including spaces: daw
+
+Keep this DELETE THIS keep this
+
+==============================================================================
+PART 10: JOIN LINES (J)
+==============================================================================
+
+Task 10.1: Join line below with current line:
+Place cursor on first line, press 'J':
+
+Join this line
+with this line
+
+Task 10.2: Join multiple lines with count:
+Place cursor on first line, press '3J':
+
+Line one
+Line two
+Line three
+
+==============================================================================
+PART 11: REPLACE CHARACTER (r) AND CHANGE CASE (~)
+==============================================================================
+
+Task 11.1: Replace one character with 'r':
+Place cursor on 'X', press 'rO':
+
+X marks the spot
+
+Task 11.2: Toggle case with '~':
+Select 'hello' in visual mode, press '~':
+
+hello world
+
+==============================================================================
+PART 12: INDENTING (> and <)
+==============================================================================
+
+Task 12.1: Indent line with '>>':
+Place cursor on line below, press '>>':
+
+Indent this line
+
+Task 12.2: Indent multiple lines:
+Visual select lines below, press '>':
+
+Indent line 1
+Indent line 2
+Indent line 3
+
+Task 12.3: Outdent with '<<':
+Place cursor on indented line, press '<<':
+
+    Remove this indentation
+
+==============================================================================
+PART 13: EDITING SPEEDRUN
+==============================================================================
+
+Complete these tasks as fast as possible:
+
+1. Delete "unnecessary" using dw
+2. Change "modify" to "updated" using cw
+3. Copy "duplicate" and paste at end using yw and p
+4. Delete from "start" to end of line using d$
+5. Undo all changes using u multiple times
+
+The unnecessary word and modify this and duplicate start everything else
+
+==============================================================================
+PART 14: REAL-WORLD EDITING CHALLENGE
+==============================================================================
+
+Fix this code using vim motions:
+
+function calculateTotal(items) {
+    let total = 0;
+    for (let i = 0; i < items.lenght; i++) {
+        total = total + items[i].price
+    }
+    return total;
+}
+
+Tasks:
+1. Fix "lenght" to "length" - use cw or r
+2. Change "total = total +" to "total +=" - use ci or dw
+3. Add semicolon at end of total += line - use A;
+4. Delete the empty line - use dd
+
+==============================================================================
+PART 15: OPERATOR + MOTION MASTERY
+==============================================================================
+
+For each task, write the command you would use:
+
+1. Delete from cursor to end of line: _______
+2. Change the current word: _______
+3. Yank 3 words: _______
+4. Delete inside parentheses: _______
+5. Change entire line: _______
+6. Delete 5 lines: _______
+7. Yank to end of line: _______
+8. Change until the character '@': _______
+
+Answers:
+1. d$  2. cw  3. 3yw  4. di(  5. cc  6. 5dd  7. y$  8. ct@
+
+==============================================================================
+COMPLETION CHECKLIST
+==============================================================================
+
+You've mastered basic editing when you can:
+[ ] Use d, c, y with any motion without thinking
+[ ] Combine counts with operators (3dw, 5dd)
+[ ] Use the dot command (.) to repeat changes
+[ ] Undo and redo confidently (u, Ctrl-r)
+[ ] Think in operator+motion patterns
+[ ] Prefer motions over character-by-character editing
+[ ] Use visual mode for complex selections
+
+==============================================================================
+NEXT STEPS
+==============================================================================
+
+1. Practice on real code for several days
+2. Use operator+motion in your daily work
+3. Move to Module 2: Intermediate (text objects!)
+4. Review: docs/01-basics/editing.md
+
+Remember: The goal isn't speed yet - it's accuracy and building habits!
+
+==============================================================================
+OPERATOR + MOTION REFERENCE
+==============================================================================
+
+Operators:
+d = delete
+c = change (delete + insert mode)
+y = yank (copy)
+
+Common Motions:
+w = next word
+$ = end of line
+gg = start of file
+G = end of file
+} = next paragraph
+/text = search for text
+
+Combine them:
+dw = delete word
+c$ = change to end of line
+y} = yank paragraph
+d/search = delete until search match
+
+THIS IS THE POWER OF VIM.
+
+==============================================================================

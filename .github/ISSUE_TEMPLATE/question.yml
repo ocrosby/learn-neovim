@@ -1,0 +1,72 @@
+name: Question
+description: Ask a question about the content or Neovim
+title: "[Question]: "
+labels: ["question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Have a question? We're here to help!
+        
+        **Note**: For general Neovim questions not specific to this repository, consider asking in:
+        - [Neovim Discourse](https://neovim.discourse.group/)
+        - [r/neovim](https://www.reddit.com/r/neovim/)
+        - [Vi and Vim Stack Exchange](https://vi.stackexchange.com/)
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Question Category
+      description: What is your question about?
+      options:
+        - Understanding a module/lesson
+        - Example configuration
+        - Neovim feature or concept
+        - Plugin usage
+        - General workflow
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Your Question
+      description: What would you like to know?
+      placeholder: Ask your question clearly and in detail
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: What have you already tried or researched?
+      placeholder: |
+        - What modules have you completed?
+        - What have you tried?
+        - What error messages did you see?
+        - Links to relevant sections
+    validations:
+      required: false
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment (if relevant)
+      description: Your setup information
+      placeholder: |
+        - Neovim version: (run `nvim --version`)
+        - OS: macOS/Linux/Windows
+        - Which example config: minimal/basic/python-dev/web-dev
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Information
+      description: Any other details that might help
+      placeholder: Code snippets, screenshots, etc.
+    validations:
+      required: false

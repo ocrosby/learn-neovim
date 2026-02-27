@@ -1,0 +1,299 @@
+# Exercise 2: Navigation
+
+Master efficient movement in Neovim without touching arrow keys. This exercise builds muscle memory for the motion commands you'll use thousands of times.
+
+GOAL: Navigate this file using only vim motions (no arrow keys, no mouse).
+
+==============================================================================
+PART 1: BASIC MOVEMENTS (h j k l)
+==============================================================================
+
+Use h (left), j (down), k (up), l (right) for all tasks in this section.
+
+Task 1.1: Move through the maze below, tracing the path with your cursor.
+Start at S, end at E. Use only h, j, k, l.
+
+    S→→→→→↓
+          ↓
+    →→→→→→↓
+    ↓
+    ↓→→→→→E
+
+Task 1.2: Move to each word below, one at a time, using only h/j/k/l:
+
+    apple     banana     cherry
+    
+         date     elderberry
+    
+    fig       grape       honeydew
+
+CHECKPOINT: Are you using arrow keys? If yes, start over! Build the habit now.
+
+==============================================================================
+PART 2: WORD MOVEMENTS (w, b, e)
+==============================================================================
+
+Word movements are faster than h/l for horizontal navigation.
+
+Task 2.1: Place cursor at START of this line.
+Press 'w' repeatedly to jump forward word by word.
+
+The quick brown fox jumps over the lazy dog
+
+Task 2.2: Place cursor at END of this line.
+Press 'b' repeatedly to jump backward word by word.
+
+Pack my box with five dozen liquor jugs
+
+Task 2.3: Use 'e' to jump to the end of each word:
+
+word1 word2 word3 word4 word5
+
+Cheat sheet:
+- w = beginning of next word
+- b = beginning of previous word  
+- e = end of current/next word
+
+==============================================================================
+PART 3: WORD vs WORD MOVEMENTS (W, B, E)
+==============================================================================
+
+Lowercase (w/b/e) = stops at punctuation
+Uppercase (W/B/E) = stops only at whitespace
+
+Task 3.1: Use 'w' on this line. Count how many stops: ____
+
+hello-world-this-is-hyphenated
+
+Task 3.2: Use 'W' on the same line. Count how many stops: ____
+
+hello-world-this-is-hyphenated
+
+(Answer: w stops 5 times, W stops 1 time)
+
+Task 3.3: Practice on code-like text:
+
+function.call(argument1, argument2, argument3)
+
+Use 'w': many stops at dots, parens, commas
+Use 'W': fewer stops, skips punctuation
+
+==============================================================================
+PART 4: LINE MOVEMENTS (0, ^, $, g_)
+==============================================================================
+
+Task 4.1: On the line below, use these commands:
+- '0' (zero) → go to column 0
+- '^' → go to first non-blank character
+- '$' → go to end of line
+- 'g_' → go to last non-blank character
+
+    This line has leading spaces and trailing spaces     
+
+Practice sequence: 0 → ^ → $ → g_ → 0
+
+==============================================================================
+PART 5: FILE MOVEMENTS (gg, G, {number}G)
+==============================================================================
+
+Task 5.1: Press 'gg' to jump to the TOP of this file.
+Task 5.2: Press 'G' to jump to the BOTTOM of this file.
+Task 5.3: Press '50G' to jump to line 50.
+Task 5.4: Press 'gg' then '6j' to go to line 7.
+
+Pro tip: {number}G is how you jump to a specific line number!
+
+==============================================================================
+PART 6: SEARCH NAVIGATION (/, ?, n, N)
+==============================================================================
+
+Task 6.1: Press '/' and type 'FINDME' then Enter.
+Your cursor should jump to the word below:
+
+FINDME
+
+Task 6.2: Press 'n' to find the next occurrence:
+
+FINDME
+
+Task 6.3: Press 'N' to go back to the previous occurrence.
+
+FINDME FINDME FINDME
+
+Task 6.4: Press '?' to search backward. Type 'BACK' and Enter:
+
+BACK in time BACK to the future BACK again
+
+==============================================================================
+PART 7: CHARACTER SEARCH (f, F, t, T, ;, ,)
+==============================================================================
+
+These commands search on the CURRENT LINE only.
+
+Task 7.1: Place cursor at START of line below.
+Press 'fx' to find the first 'x'.
+
+The quick brown fox jumps over the lazy dog
+
+Task 7.2: Press ';' to find the NEXT 'x' on the same line.
+(There isn't one, so nothing happens)
+
+Task 7.3: Press 'Fx' to find 'x' searching BACKWARD.
+
+Task 7.4: Use 'ta' to jump TO (before) the letter 'a':
+
+The quick brown fox jumps over the lazy dog
+
+Cheat sheet:
+- f{char} = find next occurrence of {char}
+- F{char} = find previous occurrence of {char}
+- t{char} = until next {char} (stops before)
+- T{char} = until previous {char} (stops after)
+- ; = repeat last f/F/t/T forward
+- , = repeat last f/F/t/T backward
+
+==============================================================================
+PART 8: PARAGRAPH MOVEMENTS ({ and })
+==============================================================================
+
+Task 8.1: Use '{' to jump to the start of this paragraph.
+Task 8.2: Use '}' to jump to the start of the next paragraph.
+
+This is paragraph one.
+It has multiple sentences.
+Practice jumping between paragraphs.
+
+This is paragraph two.
+Keep practicing these movements.
+They're useful for code blocks too!
+
+This is paragraph three.
+Use { to go backward.
+Use } to go forward.
+
+==============================================================================
+PART 9: MATCHING BRACKETS (%)
+==============================================================================
+
+Task 9.1: Place cursor on the opening '(' below.
+Press '%' to jump to the matching ')'.
+Press '%' again to jump back.
+
+function calculate(x, y, z) {
+    return (x + y) * z;
+}
+
+Task 9.2: Practice on nested brackets:
+
+if (condition && (nested || expression)) {
+    doSomething([1, 2, 3]);
+}
+
+Place cursor on any bracket/brace/paren and press '%'.
+
+==============================================================================
+PART 10: SCROLLING MOVEMENTS (Ctrl-u, Ctrl-d, Ctrl-f, Ctrl-b)
+==============================================================================
+
+Task 10.1: Press 'Ctrl-d' to scroll DOWN half a page.
+Task 10.2: Press 'Ctrl-u' to scroll UP half a page.
+Task 10.3: Press 'Ctrl-f' to scroll forward a full page.
+Task 10.4: Press 'Ctrl-b' to scroll backward a full page.
+
+(Try these commands throughout this file)
+
+==============================================================================
+PART 11: SCREEN POSITION (H, M, L)
+==============================================================================
+
+These move relative to what's visible on screen (not the file).
+
+Task 11.1: Press 'H' to jump to the HIGH (top) of the screen.
+Task 11.2: Press 'M' to jump to the MIDDLE of the screen.
+Task 11.3: Press 'L' to jump to the LOW (bottom) of the screen.
+
+==============================================================================
+PART 12: MARKS AND JUMPS (m, ', `, Ctrl-o, Ctrl-i)
+==============================================================================
+
+Task 12.1: Place cursor on this line and press 'ma' to set mark 'a'.
+
+MARKED LOCATION A
+
+Task 12.2: Navigate away (press 'gg' to go to top).
+Task 12.3: Press 'a to jump back to mark 'a'.
+
+Task 12.4: Jump to several locations, then press 'Ctrl-o' to jump BACK.
+Task 12.5: Press 'Ctrl-i' to jump FORWARD in the jump list.
+
+==============================================================================
+PART 13: NAVIGATION SPEEDRUN
+==============================================================================
+
+Complete this challenge as fast as possible:
+
+START HERE
+
+Step 1: Jump to line 1 (use gg)
+Step 2: Jump to line 50 (use 50G)
+Step 3: Jump to end of file (use G)
+Step 4: Search for "SPEEDRUN" (use /SPEEDRUN)
+Step 5: Jump to beginning of this section (use { a few times)
+
+SPEEDRUN
+
+How long did it take? Try again without looking at the steps!
+
+==============================================================================
+PART 14: PRACTICAL NAVIGATION PATTERNS
+==============================================================================
+
+Practice these common patterns on the code below:
+
+1. Jump to the function name: use 'w' or 'f'
+2. Jump to the opening brace: use 'f{'
+3. Jump to the matching closing brace: use '%'
+4. Jump to line 3 inside the function: use 'j' or {number}j
+5. Jump to the end of "parameter": use 'e'
+
+function myFunction(parameter) {
+    const result = calculate();
+    console.log(result);
+    return result;
+}
+
+==============================================================================
+PART 15: NAVIGATION WITHOUT ARROW KEYS PLEDGE
+==============================================================================
+
+Sign here if you completed this entire exercise WITHOUT arrow keys:
+
+Name: _____________________ Date: _____________________
+
+If you used arrow keys, redo the exercise. Muscle memory is everything!
+
+==============================================================================
+COMPLETION CHECKLIST
+==============================================================================
+
+You've mastered navigation when you can:
+[ ] Use h/j/k/l without thinking
+[ ] Jump by words (w, b, e) instead of characters
+[ ] Move to line start/end (0, ^, $) instantly
+[ ] Jump to specific lines ({number}G, gg, G)
+[ ] Search efficiently (/, ?, f, F, t, T)
+[ ] Use % on brackets without hesitation
+[ ] Navigate without arrow keys for an entire session
+
+==============================================================================
+NEXT STEPS
+==============================================================================
+
+1. Use only hjkl for one full day of work
+2. Practice on real code files
+3. Move to Exercise 3: Basic Editing
+4. Review: docs/01-basics/navigation.md
+
+Speed comes with practice. Accuracy comes first!
+
+==============================================================================

@@ -1,0 +1,376 @@
+# Exercise 2: Registers
+
+Registers are Vim's clipboard system - but much more powerful. Learn to work with multiple clipboards, macros, and special registers.
+
+GOAL: Understand Vim's register system and use multiple registers effectively.
+
+==============================================================================
+PART 1: THE UNNAMED REGISTER ("")
+==============================================================================
+
+Every yank and delete goes to the unnamed register by default.
+
+Task 1.1: Yank a word, check the register:
+Yank 'example' with 'yiw', then type ':reg "' and press Enter to see it:
+
+example word here
+
+Task 1.2: Delete and paste:
+Delete 'move' with 'dw', move to [HERE], press 'p':
+
+move this word [HERE]
+
+The deleted text was in the unnamed register!
+
+==============================================================================
+PART 2: NUMBERED REGISTERS (0-9)
+==============================================================================
+
+Register 0 = last yank
+Registers 1-9 = last 9 deletions (1 is most recent)
+
+Task 2.1: Yank 'first' with 'yiw':
+
+first word
+
+Task 2.2: Delete 'second' with 'dw':
+
+second word
+
+Task 2.3: Type ':reg' to see both:
+- Register 0 has 'first' (last yank)
+- Register 1 has 'second' (last delete)
+
+Task 2.4: Paste from register 0 with '"0p':
+
+[Paste first here]
+
+Task 2.5: Paste from register 1 with '"1p':
+
+[Paste second here]
+
+==============================================================================
+PART 3: NAMED REGISTERS (a-z)
+==============================================================================
+
+You can explicitly save to named registers.
+
+Task 3.1: Yank to register 'a':
+Place cursor on 'alpha', press '"ayiw':
+
+alpha text
+
+Task 3.2: Yank to register 'b':
+Place cursor on 'beta', press '"byiw':
+
+beta text
+
+Task 3.3: Paste from register 'a' with '"ap':
+
+[Paste alpha here]
+
+Task 3.4: Paste from register 'b' with '"bp':
+
+[Paste beta here]
+
+Task 3.5: View all registers with ':reg':
+You should see 'a' and 'b' with your yanked text!
+
+==============================================================================
+PART 4: APPENDING TO REGISTERS (A-Z)
+==============================================================================
+
+Uppercase register names append instead of replace.
+
+Task 4.1: Yank 'first' to register 'c':
+Place cursor on 'first', press '"cyiw':
+
+first
+
+Task 4.2: Append 'second' to register 'c':
+Place cursor on 'second', press '"Cyiw' (uppercase C!):
+
+second
+
+Task 4.3: Check register 'c' with ':reg c':
+It should contain 'firstsecond'!
+
+Task 4.4: Paste both with '"cp':
+
+[Paste here]
+
+==============================================================================
+PART 5: THE YANK REGISTER (0)
+==============================================================================
+
+Register 0 always has the last yanked text (not deleted).
+
+Task 5.1: Yank 'preserve' with 'yiw':
+
+preserve this word
+
+Task 5.2: Delete 'delete' with 'dw':
+
+delete this word
+
+Task 5.3: Paste with 'p':
+It pastes 'delete' (from unnamed register)
+
+Task 5.4: Paste with '"0p':
+It pastes 'preserve' (from yank register 0)!
+
+This is useful when you want the yanked text, not the deleted text.
+
+==============================================================================
+PART 6: THE SYSTEM CLIPBOARD (+ and *)
+==============================================================================
+
+Register '+' = system clipboard
+Register '*' = selection clipboard (X11)
+
+Task 6.1: Copy from outside Neovim (Ctrl-C something in browser).
+
+Task 6.2: Paste it in Neovim with '"+p':
+
+[Paste here]
+
+Task 6.3: Yank 'share' to clipboard:
+Place cursor on 'share', press '"+yiw':
+
+share this word
+
+Task 6.4: Try pasting it outside Neovim (Ctrl-V in another app).
+It should work!
+
+Note: Requires clipboard support (:checkhealth clipboard).
+
+==============================================================================
+PART 7: THE BLACK HOLE REGISTER (_)
+==============================================================================
+
+Register '_' = /dev/null (doesn't save deleted text).
+
+Task 7.1: Yank 'save' with 'yiw':
+
+save this
+
+Task 7.2: Delete 'delete' to black hole with '"_dw':
+
+delete this word
+
+Task 7.3: Paste with 'p':
+It pastes 'save' because delete went to black hole!
+
+Use '"_d' when you want to delete without affecting registers.
+
+==============================================================================
+PART 8: THE EXPRESSION REGISTER (=)
+==============================================================================
+
+Register '=' evaluates expressions.
+
+Task 8.1: Insert result of math:
+In Insert mode, type 'Ctrl-r =', then '2+2', then Enter:
+
+The answer is 
+
+Task 8.2: Insert random number:
+In Insert mode, type 'Ctrl-r =', then 'rand()', then Enter:
+
+Random: 
+
+==============================================================================
+PART 9: THE COMMAND REGISTER (:)
+==============================================================================
+
+Register ':' has the last command.
+
+Task 9.1: Run a command like ':set number', then type ':reg :':
+You'll see your last command!
+
+Task 9.2: Run it again with '@:':
+This executes the last command.
+
+==============================================================================
+PART 10: THE FILE NAME REGISTERS (% # . :)
+==============================================================================
+
+Register '%' = current file name
+Register '#' = alternate file name
+Register '.' = last inserted text
+
+Task 10.1: Check current file name with ':reg %':
+
+Task 10.2: In Insert mode, type 'hello', Esc, then ':reg .':
+You'll see 'hello' in register '.'!
+
+Task 10.3: Paste last inserted text with '".p':
+
+[Paste here]
+
+==============================================================================
+PART 11: PRACTICAL REGISTER WORKFLOWS
+==============================================================================
+
+Workflow 1: Multiple Clipboards
+
+Task: Collect 3 different pieces of text:
+1. Yank 'data1' to register 'a': "ayiw
+
+data1
+
+2. Yank 'data2' to register 'b': "byiw
+
+data2
+
+3. Yank 'data3' to register 'c': "cyiw
+
+data3
+
+4. Paste them in order:
+"ap [HERE]
+"bp [HERE]
+"cp [HERE]
+
+==============================================================================
+PART 12: REGISTER WORKFLOW - SWAP TEXT
+==============================================================================
+
+Task: Swap 'first' and 'second' using registers:
+
+first is here and second is here
+
+Steps:
+1. Yank 'first' to register 'a': "ayiw
+2. Yank 'second' to register 'b': "byiw
+3. Delete 'first', paste 'b': diw"bp
+4. Delete 'second', paste 'a': diw"ap
+
+==============================================================================
+PART 13: REGISTER WORKFLOW - COLLECTING DATA
+==============================================================================
+
+Collect data from multiple places:
+
+Task: Collect all the numbers below into one place:
+
+Section 1: value = 100
+Section 2: count = 200
+Section 3: total = 300
+
+Steps:
+1. Yank 100 to register 'n': "nyiw
+2. Append 200 to register 'n': "Nyiw
+3. Append 300 to register 'n': "Nyiw
+4. Paste all numbers: "np
+
+[Paste here]
+
+==============================================================================
+PART 14: REGISTER INSPECTION
+==============================================================================
+
+Task 14.1: View all registers with ':registers' or ':reg':
+This shows contents of all registers.
+
+Task 14.2: View specific registers with ':reg abc':
+This shows only registers a, b, and c.
+
+Task 14.3: Make some yanks and deletes, then explore:
+:reg 0123    " Recent yanks and deletes
+:reg abc     " Named registers
+:reg "+      " Clipboard
+:reg %       " Current filename
+
+==============================================================================
+PART 15: REGISTER MASTERY CHALLENGE
+==============================================================================
+
+Complete this workflow:
+
+You have three text snippets to reorganize:
+
+[START]
+snippet1: apple
+snippet2: banana  
+snippet3: cherry
+[END]
+
+Tasks:
+1. Yank each snippet to registers a, b, c
+2. Delete all three lines
+3. Paste them in reverse order using registers
+4. Expected result: cherry, banana, apple
+
+Write the commands you used:
+_________________________________________________
+
+==============================================================================
+PART 16: COMMON REGISTER PATTERNS
+==============================================================================
+
+Pattern 1: Save before experimenting
+"ayiw    - Save current word to register 'a'
+[experiment]
+"ap      - Restore if needed
+
+Pattern 2: Multiple pastes
+"ayy     - Yank line to register 'a'
+"ap      - Paste it many times without yanking again
+
+Pattern 3: Delete without affecting clipboard
+"_dw     - Delete to black hole register
+p        - Paste previously yanked content
+
+Pattern 4: Share with outside applications
+"+yy     - Yank line to system clipboard
+"+p      - Paste from system clipboard
+
+==============================================================================
+COMPLETION CHECKLIST
+==============================================================================
+
+You've mastered registers when you can:
+[ ] Use named registers (a-z) to save multiple texts
+[ ] Access yank register (0) vs unnamed register ("")
+[ ] Use system clipboard ("+)
+[ ] Delete to black hole (_) when needed
+[ ] View registers with :reg
+[ ] Paste from specific registers with "xp
+[ ] Append to registers with uppercase names
+[ ] Use registers in daily workflow
+
+==============================================================================
+NEXT STEPS
+==============================================================================
+
+1. Practice named registers in daily work
+2. Use system clipboard for sharing
+3. Move to Exercise 3: Macros (which use registers!)
+4. Review: docs/02-intermediate/text-objects.md
+
+==============================================================================
+REGISTER REFERENCE CARD
+==============================================================================
+
+Unnamed:       "     (last yank/delete)
+Numbered:      0-9   (0=last yank, 1-9=deletes)
+Named:         a-z   (your storage)
+Append:        A-Z   (append to a-z)
+System:        +     (system clipboard)
+Selection:     *     (X11 selection)
+Black hole:    _     (delete without saving)
+Expression:    =     (evaluate expressions)
+Last command:  :     (last : command)
+Filename:      %     (current file)
+Last insert:   .     (last inserted text)
+
+Usage:
+"ayiw    Yank inner word to register 'a'
+"ap      Paste from register 'a'
+"_dw     Delete word to black hole
+"+yy     Yank line to system clipboard
+:reg     View all registers
+:reg abc View registers a, b, c
+
+==============================================================================

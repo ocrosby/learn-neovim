@@ -1,0 +1,79 @@
+name: Content Suggestion
+description: Suggest new content or improvements
+title: "[Suggestion]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve Learn Neovim! Tell us your idea.
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: Suggestion Type
+      description: What kind of content are you suggesting?
+      options:
+        - New module or lesson
+        - New example configuration
+        - Improvement to existing content
+        - New cheatsheet or resource
+        - Exercise or practice content
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Your Suggestion
+      description: What would you like to see added or changed?
+      placeholder: Describe your idea in detail
+    validations:
+      required: true
+
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation
+      description: Why would this be valuable?
+      placeholder: |
+        - What problem does it solve?
+        - Who would benefit?
+        - How would it improve the learning experience?
+    validations:
+      required: true
+
+  - type: textarea
+    id: implementation
+    attributes:
+      label: Possible Implementation
+      description: Do you have ideas for how to implement this?
+      placeholder: |
+        - Structure or outline
+        - Key concepts to cover
+        - Examples or analogies
+    validations:
+      required: false
+
+  - type: dropdown
+    id: willing
+    attributes:
+      label: Willing to Contribute
+      description: Would you be willing to help implement this?
+      options:
+        - "Yes, I can create this content"
+        - "Yes, with guidance"
+        - "No, but happy to review"
+        - "Just suggesting the idea"
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Any other relevant information
+      placeholder: Links to similar resources, references, etc.
+    validations:
+      required: false

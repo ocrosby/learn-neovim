@@ -1,0 +1,422 @@
+# Exercise 3: Macros
+
+Macros let you record a sequence of commands and replay them. This is one of Vim's most powerful features for automating repetitive tasks.
+
+GOAL: Learn to record, edit, and use macros effectively.
+
+==============================================================================
+PART 1: RECORDING YOUR FIRST MACRO
+==============================================================================
+
+Macros are recorded into registers (same as yank/delete).
+
+Task 1.1: Record a simple macro:
+1. Press 'qa' to start recording into register 'a'
+2. Press 'w' to move forward one word
+3. Press 'q' to stop recording
+
+Task 1.2: Replay the macro:
+Press '@a' to replay it (should move forward one word).
+
+Task 1.3: Replay multiple times:
+Press '5@a' to replay 5 times.
+
+Practice here by recording and replaying:
+
+word1 word2 word3 word4 word5 word6 word7 word8
+
+==============================================================================
+PART 2: RECORDING A USEFUL MACRO
+==============================================================================
+
+Task 2.1: Record a macro to format lines:
+Record into register 'q':
+1. Press 'qq' to start recording
+2. Press '0' to go to start of line
+3. Press 'i' to enter insert mode
+4. Type '- ' (dash and space)
+5. Press 'Esc' to exit insert mode
+6. Press 'j' to move to next line
+7. Press 'q' to stop recording
+
+Task 2.2: Apply macro to lines below:
+Place cursor on first line, press '@q' for each line (or '5@q'):
+
+Item one
+Item two
+Item three
+Item four
+Item five
+
+Expected result:
+- Item one
+- Item two
+...
+
+==============================================================================
+PART 3: REPEATING MACROS
+==============================================================================
+
+Ways to repeat macros:
+
+Method 1: @@ repeats the last macro:
+Press '@q' once, then '@@' to repeat it again.
+
+Method 2: {count}@{register}:
+Press '10@q' to run macro q ten times.
+
+Method 3: Visual selection:
+1. Select lines with 'V'
+2. Type ':norm @q' and press Enter
+3. Macro runs on each selected line!
+
+Practice here:
+
+Line 1
+Line 2
+Line 3
+Line 4
+
+==============================================================================
+PART 4: MACRO FOR SEARCH AND REPLACE PATTERN
+==============================================================================
+
+Task 4.1: Record a macro to find and change:
+1. Press 'qa' to record
+2. Press '/old' then Enter to search
+3. Press 'cw' to change word
+4. Type 'new'
+5. Press 'Esc'
+6. Press 'n' to go to next match
+7. Press 'q' to stop
+
+Task 4.2: Apply to text below:
+Press '@a' repeatedly or '10@a':
+
+The old way is old thinking. Using old methods with old tools.
+Old habits die hard. The old code needs updating with old patterns.
+
+==============================================================================
+PART 5: MACRO TO ADD LINE NUMBERS
+==============================================================================
+
+Task 5.1: Record a macro to add line numbers:
+1. Press 'qa'
+2. Press 'I' (insert at start)
+3. Type '1. '
+4. Press 'Esc'
+5. Press 'j' (next line)
+6. Press 'q'
+
+Task 5.2: Apply to create numbered list:
+
+First item
+Second item
+Third item
+Fourth item
+
+Note: This simple version doesn't increment. We'll fix that next!
+
+==============================================================================
+PART 6: USING EXPRESSIONS IN MACROS
+==============================================================================
+
+Task 6.1: Record a macro with incrementing numbers:
+This is advanced! It uses Ctrl-A to increment numbers.
+
+1. Add '0. ' before first line manually
+2. Press 'qa'
+3. Press '0' (go to start)
+4. Press 'Ctrl-A' (increment number)
+5. Press 'j' (next line)
+6. Press 'q'
+
+Test on:
+
+0. First
+0. Second
+0. Third
+0. Fourth
+
+After macro: they should be 1, 2, 3, 4!
+
+==============================================================================
+PART 7: MACROS FOR CODE FORMATTING
+==============================================================================
+
+Task 7.1: Record a macro to format JavaScript:
+
+Record macro 'q':
+1. 'qq' to start
+2. 'A' to append at end
+3. Type ';' to add semicolon
+4. Press 'Esc'
+5. 'j' to next line
+6. 'q' to stop
+
+Apply to code below:
+
+const name = "John"
+const age = 30
+const city = "NYC"
+const active = true
+
+==============================================================================
+PART 8: RECURSIVE MACROS
+==============================================================================
+
+Macros can call themselves!
+
+Task 8.1: Record a recursive macro:
+1. Press 'qq' to start recording
+2. Press 'I' to insert at start
+3. Type '> '
+4. Press 'Esc'
+5. Press 'j' to go down
+6. Press '@q' (call itself!)
+7. Press 'q' to stop
+
+Task 8.2: Run with '@q' on first line:
+It will process all lines until it errors (at end of file)!
+
+Line alpha
+Line beta
+Line gamma
+Line delta
+Line epsilon
+
+WARNING: It stops when 'j' fails (no more lines).
+
+==============================================================================
+PART 9: EDITING MACROS
+==============================================================================
+
+Macros are stored in registers, so you can edit them!
+
+Task 9.1: Record a macro with a mistake:
+1. Press 'qa'
+2. Press 'w' to move forward
+3. Press 'x' to delete character (oops, don't want this!)
+4. Press 'q'
+
+Task 9.2: View the macro:
+Type ':reg a' to see it.
+
+Task 9.3: Edit the macro:
+1. Paste macro to file: 'o' then '"ap'
+2. Edit it (remove the 'x')
+3. Delete the line to register 'a': '"add'
+4. Now '@a' uses the edited version!
+
+==============================================================================
+PART 10: SAVING MACROS PERMANENTLY
+==============================================================================
+
+Macros are lost when you close Neovim. Save them to your config!
+
+Task 10.1: Create a macro, then view it:
+1. Record macro: 'qa...q'
+2. View it: ':reg a'
+3. In your init.lua, add:
+
+vim.fn.setreg('a', 'your-macro-commands-here')
+
+The macro will be loaded every time you start Neovim!
+
+==============================================================================
+PART 11: PRACTICAL MACRO - CSV TO JSON
+==============================================================================
+
+Task 11.1: Convert CSV to JSON format:
+
+Record macro 'q' to transform this:
+name,age,city
+
+To this:
+{"name": "John", "age": "30", "city": "NYC"}
+
+Steps:
+1. 'qq' start recording
+2. 'I' insert at start, type '{"'
+3. 'Esc' then 'f,' find comma
+4. 'r:' replace comma with colon
+5. 'i' insert, type '" '
+6. Continue for other fields...
+7. 'A' append at end, type '}'
+8. 'q' stop
+
+Test data:
+
+John,30,NYC
+Jane,25,LA
+Bob,35,Chicago
+
+==============================================================================
+PART 12: PRACTICAL MACRO - ADD QUOTES
+==============================================================================
+
+Task 12.1: Add quotes around each word:
+
+Record macro 'a':
+1. 'qa'
+2. 'bi' (insert before word)
+3. Type '"'
+4. 'Esc'
+5. 'ea' (append after word)
+6. Type '"'
+7. 'Esc'
+8. 'w' (next word)
+9. 'q'
+
+Apply to:
+
+apple banana cherry date elderberry
+
+Expected:
+"apple" "banana" "cherry" "date" "elderberry"
+
+==============================================================================
+PART 13: MACRO FOR MARKDOWN FORMATTING
+==============================================================================
+
+Task 13.1: Convert plain text to markdown headers:
+
+Record macro 'h':
+1. 'qh'
+2. 'I' insert at start
+3. Type '## '
+4. 'Esc'
+5. 'j'
+6. 'q'
+
+Apply to:
+
+Introduction
+Background
+Methods
+Results
+Conclusion
+
+==============================================================================
+PART 14: COMBINING MACROS
+==============================================================================
+
+You can use multiple macros together!
+
+Task 14.1: Record macro 'a' to move down: 'qajq'
+Task 14.2: Record macro 'b' to add prefix: 'qbI* Escq'
+Task 14.3: Record macro 'c' that uses both: 'qc@b@aq'
+
+Now '@c' adds prefix and moves to next line!
+
+Test here:
+
+Item one
+Item two
+Item three
+
+==============================================================================
+PART 15: MACRO DEBUGGING
+==============================================================================
+
+When macros don't work:
+
+1. View the macro: ':reg q'
+2. Execute step-by-step: Paste it and run commands manually
+3. Re-record if needed
+4. Test on one line first, then apply to many
+
+Task 15.1: Debug this workflow:
+1. Record a macro that doesn't work perfectly
+2. View it with ':reg'
+3. Paste it with '"qp'
+4. Fix the commands
+5. Delete it back to register: '"qdd'
+6. Test the fixed version
+
+==============================================================================
+PART 16: MACRO MASTERY CHALLENGE
+==============================================================================
+
+Transform this data using macros:
+
+firstname,lastname,age
+john,doe,30
+jane,smith,25
+bob,jones,35
+
+Goal: Convert to this format:
+- Doe, John (30)
+- Smith, Jane (25)
+- Jones, Bob (35)
+
+Steps (design your own macro!):
+1. Skip header line
+2. Swap first and last name
+3. Capitalize last name
+4. Add formatting
+5. Delete age column
+
+Write your macro here:
+________________________________________________
+
+==============================================================================
+COMPLETION CHECKLIST
+==============================================================================
+
+You've mastered macros when you can:
+[ ] Record and replay simple macros (q{reg}...q, @{reg})
+[ ] Use counts with macros ({count}@{reg})
+[ ] Repeat last macro with @@
+[ ] Apply macros to visual selections (:norm @q)
+[ ] Edit macros by pasting and re-recording
+[ ] Create recursive macros
+[ ] Use macros to automate repetitive tasks
+[ ] Debug macros when they don't work
+
+==============================================================================
+NEXT STEPS
+==============================================================================
+
+1. Use macros in daily work for repetitive edits
+2. Start simple, build complexity gradually
+3. Save useful macros to your init.lua
+4. Move to Module 3: Configuration
+5. Review: docs/02-intermediate/text-objects.md
+
+==============================================================================
+MACRO REFERENCE CARD
+==============================================================================
+
+Recording:
+q{register}   Start recording into register
+q             Stop recording
+
+Playback:
+@{register}   Play macro from register
+@@            Repeat last macro
+{count}@{reg} Play macro N times
+
+On selection:
+:'<,'>norm @q   Play macro on selected lines
+
+Viewing:
+:reg {register} View macro content
+
+Editing:
+"{reg}p         Paste macro content
+[edit it]
+"{reg}dd        Save back to register
+
+Special:
+Ctrl-A          Increment number (useful in macros)
+Ctrl-X          Decrement number
+
+Tips:
+- Start with cursor positioning (0, $, w, b)
+- End with movement to next item (j, n, w)
+- Test on one item before applying to many
+- Use relative motions (w, e) not absolute (5l)
+- Recursive macros: call @q inside q recording
+
+==============================================================================
