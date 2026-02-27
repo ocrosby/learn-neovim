@@ -10,11 +10,12 @@
 |----------|-------|---------|
 | **Learning Modules** | 8 | Complete progression from intro to workflows |
 | **Lesson Files** | 29 | In-depth guides and tutorials |
+| **Quick Start Guides** | 3 | QUICKSTART, FIRST_WEEK_CHECKLIST, WHICH_PATH |
 | **Example Configs** | 4 | Minimal to production-ready setups |
 | **Cheatsheets** | 4 | Quick reference guides |
 | **Resource Files** | 7 | Articles, videos, communities |
-| **Total Markdown Files** | 41+ | Comprehensive documentation |
-| **Lines of Code** | ~20,000+ | Educational content |
+| **Total Markdown Files** | 44+ | Comprehensive documentation |
+| **Lines of Code** | ~22,000+ | Educational content |
 
 ### File Structure
 
@@ -23,7 +24,10 @@ learn-neovim/
 ├── .github/
 │   ├── ISSUE_TEMPLATE/          [3 issue templates]
 │   └── PULL_REQUEST_TEMPLATE.md [1 PR template]
-├── docs/                         [8 modules, 29 lesson files]
+├── docs/                         [8 modules, 29 lesson files + 3 quick guides]
+│   ├── QUICKSTART.md             [First hour guide with printable cheatsheet]
+│   ├── FIRST_WEEK_CHECKLIST.md   [Day-by-day plan for Week 1]
+│   ├── WHICH_PATH.md             [Decision tree for learning paths]
 │   ├── 00-introduction/          [3 lessons]
 │   ├── 01-basics/                [4 lessons]
 │   ├── 02-intermediate/          [3 lessons]
@@ -33,7 +37,7 @@ learn-neovim/
 │   ├── 06-advanced/              [3 lessons]
 │   └── 07-workflows/             [4 lessons]
 ├── examples/                     [4 complete configs]
-│   ├── minimal/                  [31 lines, 0 plugins]
+│   ├── minimal/                  [31 lines, 0 plugins - START HERE]
 │   ├── basic/                    [~300 lines, 14 plugins]
 │   ├── python-dev/               [~350 lines, 17 plugins]
 │   └── web-dev/                  [~340 lines, 18 plugins]
@@ -44,7 +48,7 @@ learn-neovim/
 │   └── communities.md            [Community resources]
 ├── CONTRIBUTING.md               [Contribution guidelines]
 ├── LICENSE                       [MIT License]
-└── README.md                     [Comprehensive overview]
+└── README.md                     [Beginner-friendly overview]
 ```
 
 ## 🎓 Learning Path

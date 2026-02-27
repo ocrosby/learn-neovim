@@ -408,10 +408,10 @@ Solution:
 
 ## Building Muscle Memory
 
-**Week 1**: Focus on `d`, `c`, `y` with motions
-**Week 2**: Add `>`, `<`, `=` for indentation
-**Week 3**: Add `gu`, `gU` for case changes
-**Week 4**: Add visual mode operators
+**Phase 1**: Focus on `d`, `c`, `y` with motions
+**Phase 2**: Add `>`, `<`, `=` for indentation
+**Phase 3**: Add `gu`, `gU` for case changes
+**Phase 4**: Add visual mode operators
 
 Practice pattern:
 1. Identify what you want to change

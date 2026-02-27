@@ -356,10 +356,10 @@ Alternative using surround (plugin):
 
 ## Building Muscle Memory
 
-**Week 1**: Focus on `iw`, `i"`, `i(` with `c` and `d`
-**Week 2**: Add `aw`, `a"`, `a(` and understand the difference
-**Week 3**: Add `it`, `ip`, and other objects
-**Week 4**: Combine with search and advanced patterns
+**Phase 1**: Focus on `iw`, `i"`, `i(` with `c` and `d`
+**Phase 2**: Add `aw`, `a"`, `a(` and understand the difference
+**Phase 3**: Add `it`, `ip`, and other objects
+**Phase 4**: Combine with search and advanced patterns
 
 Practice pattern:
 1. Find text object to edit

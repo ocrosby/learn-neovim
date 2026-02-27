@@ -2,13 +2,23 @@
 
 Ready-to-use Neovim configurations for different experience levels and use cases. Each example is fully documented and can be tried without affecting your current setup.
 
+## 🎯 Which Config Should I Use?
+
+**Brand new to Neovim?** → Start with [Minimal](./minimal/)  
+**Finished `:Tutor` and basic lessons?** → Try [Basic](./basic/)  
+**Comfortable with Neovim?** → Use language-specific configs
+
 ## Quick Start
 
 Try any config without installing:
 
 ```bash
 # From repository root
+
+# 👈 START HERE - No plugins, perfect for learning
 nvim -u examples/minimal/init.lua
+
+# Try after you're comfortable with basics
 nvim -u examples/basic/init.lua
 nvim -u examples/python-dev/init.lua
 nvim -u examples/web-dev/init.lua
@@ -16,7 +26,7 @@ nvim -u examples/web-dev/init.lua
 
 ## Available Configurations
 
-### 1. [Minimal](./minimal/) - For Beginners
+### 1. [Minimal](./minimal/) - 👈 **START HERE**
 
 **No plugins. Just essential Vim/Neovim settings.**
 
@@ -153,11 +163,11 @@ nvim -u examples/web-dev/init.lua
 
 ### By Experience Level
 
-| Experience | Recommended Config |
-|------------|-------------------|
-| Complete beginner | [Minimal](./minimal/) |
-| Completed basics tutorial | [Basic](./basic/) |
-| Experienced developer | Language-specific |
+| Experience | Recommended Config | When to Use |
+|------------|-------------------|-------------|
+| Complete beginner | [Minimal](./minimal/) | **Days 1-7** - Focus on Neovim itself |
+| Completed `:Tutor` | [Basic](./basic/) | **Week 2-4** - Add modern features |
+| Comfortable with Neovim | Language-specific | **Week 4+** - Optimize for your work |
 
 ### By Use Case
 
@@ -252,15 +262,28 @@ alias nvim-python='NVIM_APPNAME=nvim-python nvim'
 Recommended learning progression:
 
 ```
-Minimal (2-4 weeks)
-  ↓ Learn Vim motions
-Basic (2-4 weeks)
-  ↓ Learn plugins & LSP
-Python/Web Dev (ongoing)
-  ↓ Language-specific mastery
-Custom Config
+Minimal (Week 1)
+  ↓ Focus on Vim motions, modes, and navigation
+  ↓ Run :Tutor, practice daily with real work
+  ↓ Goal: Comfortable with hjkl, basic editing
+  
+Basic (Weeks 2-3)
+  ↓ Learn plugins, LSP, fuzzy finding
+  ↓ Add IDE features gradually
+  ↓ Goal: Productive for real work
+  
+Language-Specific (Week 4+)
+  ↓ Optimize for your primary language
+  ↓ Add testing, debugging, linting
+  ↓ Goal: Faster than your old editor
+  
+Custom Config (Ongoing)
   ↓ Build your perfect setup
+  ↓ Add exactly what you need
+  ↓ Goal: Editor that fits like a glove
 ```
+
+**Don't skip steps!** Each phase builds essential muscle memory and understanding.
 
 ## Customization
 

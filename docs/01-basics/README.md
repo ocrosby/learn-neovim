@@ -1,158 +1,120 @@
-# Module 1: Neovim Basics
+# Module 1: Your First Steps in Neovim
 
-Welcome to the core of Neovim! This module teaches you the fundamental concepts of modal editing, navigation, and basic editing operations.
+This is where the fun begins! You'll learn the core skills that make Neovim powerful.
 
-## Learning Objectives
+## What You'll Learn
 
-By the end of this module, you will:
+- How to switch between modes
+- Navigate without arrow keys (faster than you think!)
+- Edit text efficiently
+- Think in Neovim's "language"
 
-- Understand and use Neovim's different modes
-- Navigate efficiently without arrow keys
-- Perform basic editing operations
-- Understand the modal editing grammar
-- Build muscle memory for common commands
+**Time needed:** Practice these concepts over a few days. No rush!
 
-## Estimated Time
+## Before Starting
 
-2-3 hours (with practice exercises)
+- ✅ Have Neovim installed ([Module 0](../00-introduction/README.md))
+- ✅ Complete `:Tutor` (type it inside Neovim and press Enter)
+- ✅ Know the survival commands: `i`, `Esc`, `:wq`, `:q!`, `u`
 
-## Prerequisites
+**Not done `:Tutor` yet?** Go do it now! It's the single best 30 minutes you can spend. Everything else builds on it.
 
-- Completed [Module 0: Introduction](../00-introduction/README.md)
-- Neovim installed and verified
-- Completed `:Tutor` (highly recommended)
+**New to Neovim?** Start with the [First Day Guide](../QUICKSTART.md) instead!
 
-## Lessons
+**Important:** You'll feel slower at first. This is completely normal! Everyone goes through this phase.
 
-1. **[Modes](modes.md)** - Normal, Insert, Visual, and Command modes
-2. **[Navigation](navigation.md)** - Moving around efficiently
-3. **[Basic Editing](editing.md)** - Core editing operations
+## Three Simple Lessons
 
-## The Modal Editing Grammar
+1. **[Modes](modes.md)** - Understanding Normal, Insert, Visual, and Command modes
+2. **[Navigation](navigation.md)** - Moving around without arrow keys
+3. **[Editing](editing.md)** - Your first editing commands
 
-Neovim's power comes from its composable command structure:
+**Work through these in order.** Each lesson builds on the previous one.
 
-```
-[count] [operator] [motion/text-object]
-```
+## The Big Idea
 
-**Examples**:
-- `d2w` - Delete 2 words
-- `c3j` - Change 3 lines down
-- `y$` - Yank (copy) to end of line
-
-You'll learn each component in this module.
-
-## Practice Philosophy
-
-**Disable arrow keys** (temporarily) to build proper muscle memory. Add this to a scratch file and practice:
+Neovim commands work like a language:
 
 ```
-Arrow keys have been disabled to help you learn the hjkl navigation.
-Use h (left), j (down), k (up), l (right) instead.
+[action] [count] [target]
 ```
 
-**Practice with real files**. Edit actual code or text, not just practice files. Discomfort is part of learning.
+Examples:
+- `d2w` - **Delete 2 words**
+- `c3j` - **Change 3 lines down**
+- `y$` - **Yank (copy) to end of line**
 
-**Focus on accuracy over speed**. Speed comes naturally with practice.
+Don't memorize these yet! Just understand the pattern.
 
-## Exercises
+## Tips for Learning
 
-Each lesson has accompanying exercises in the [exercises](exercises/) directory:
+**Go slow** - Accuracy first, speed comes later.
+
+**Practice daily** - Even 15 minutes helps build muscle memory.
+
+**Use real work** - Practice on actual files, not just exercises.
+
+**Be patient** - Feeling awkward is part of the process.
+
+**Resist arrow keys** - Try using `h j k l` instead. It feels weird for a day, then clicks!
+
+## Practice Exercises
+
+Each lesson has exercises you can try:
 
 - [Exercise 1: Mode Switching](exercises/01-modes.txt)
 - [Exercise 2: Navigation](exercises/02-navigation.txt)
 - [Exercise 3: Basic Editing](exercises/03-editing.txt)
 
-## Quick Reference
+## Quick Commands Reference
 
-### Essential Commands
-
-| Command | Action |
-|---------|--------|
-| `i` | Insert before cursor |
-| `a` | Append after cursor |
-| `o` | Open new line below |
-| `Esc` | Return to Normal mode |
-| `h,j,k,l` | Left, Down, Up, Right |
-| `w` | Next word |
-| `b` | Previous word |
-| `d` | Delete operator |
-| `y` | Yank (copy) operator |
-| `p` | Paste |
+| Key | What It Does |
+|-----|--------------|
+| `i` | Start typing (Insert mode) |
+| `Esc` | Stop typing (back to Normal mode) |
+| `h j k l` | Move left, down, up, right |
+| `w` | Jump to next word |
 | `u` | Undo |
-| `Ctrl-r` | Redo |
+| `:q!` | Quit without saving |
+| `:wq` | Save and quit |
 
-### Mode Indicators
+**Stuck?** Type `:help` and press Enter inside Neovim for built-in help.
 
-| Mode | Indicator | Purpose |
-|------|-----------|---------|
-| Normal | (none) | Navigate and command |
-| Insert | `-- INSERT --` | Type text |
-| Visual | `-- VISUAL --` | Select text |
-| Command | `:` prompt | Execute commands |
+## Common Beginner Struggles
 
-## Common Beginner Mistakes
+**"I can't type!"** - You're in Normal mode. Press `i` to enter Insert mode.
 
-1. **Staying in Insert mode** - Normal mode is your default
-2. **Using arrow keys** - hjkl is more efficient
-3. **Repeating commands manually** - Use counts: `3j` not `jjj`
-4. **Not using undo** - `u` is your friend, experiment freely
-5. **Forgetting which mode you're in** - Watch the mode indicator
+**"I keep getting random characters"** - You're in Insert mode. Press `Esc` to get to Normal mode.
 
-## Tips for Success
+**"hjkl feels weird"** - It does for a day or two, then it clicks. Stay with it!
 
-- **Practice daily** - Even 15 minutes builds muscle memory
-- **Use `:help`** - If you forget a command, `:help motion` or `:help operator`
-- **Don't memorize** - Understand the patterns, the rest follows
-- **Be patient** - You'll feel slower at first, this is normal
-- **Use vanilla Neovim** - No plugins yet, learn the foundation
+**"I'm slower than before"** - Completely normal! Give it a few days.
 
-## Lesson Progression
+## When Are You Ready for Module 2?
 
-Follow the lessons in order:
-
-1. **[Start with Modes](modes.md)** - Understand Normal, Insert, Visual, Command
-2. **[Then Navigation](navigation.md)** - Move efficiently without arrow keys
-3. **[Finally Basic Editing](editing.md)** - Combine operators and motions
-
-Each lesson builds on the previous one.
-
-## Assessment
-
-You're ready for Module 2 when you can:
-
+You can:
 - Switch between modes without thinking
-- Navigate a file using hjkl, w/b, f/t without arrow keys
-- Use operators with motions (dw, caw, yap)
-- Undo/redo comfortably
-- Use counts with commands (3j, 2dw)
+- Move around using `hjkl` and `w/b`
+- Delete and edit text with basic commands
+- Undo mistakes with `u`
 
-## Next Steps
+Don't wait for perfection—move on when you're comfortable with the basics!
 
-After completing this module:
+## Next Module
 
-1. Practice for at least a few days with real work
-2. Complete all exercises
-3. Move to [Module 2: Intermediate](../02-intermediate/README.md)
+**→ [Module 2: Intermediate Skills](../02-intermediate/README.md)**
 
-## Additional Resources
+Take a few days to practice first!
 
-- [`:help motion.txt`](https://neovim.io/doc/user/motion.html) - All movement commands
-- [`:help operator.txt`](https://neovim.io/doc/user/motion.html#operator) - All operators
-- [`:help insert.txt`](https://neovim.io/doc/user/insert.html) - Insert mode details
-- [Vim Golf](https://www.vimgolf.com/) - Practice efficiency (when ready)
-- [Vim Adventures](https://vim-adventures.com/) - Gamified learning
+<details>
+<summary>📚 More resources</summary>
 
-## Getting Help
+- [Vim Golf](https://www.vimgolf.com/) - Practice challenges
+- [Vim Adventures](https://vim-adventures.com/) - Game-based learning
+- Type `:help motion` inside Neovim for detailed docs
 
-If you're stuck on a concept:
-
-1. Use `:help <topic>` (e.g., `:help w`)
-2. Review the `:Tutor` sections
-3. Practice the specific exercise for that topic
-4. Ask in [r/neovim](https://www.reddit.com/r/neovim/) or [Neovim Discourse](https://neovim.discourse.group/)
+</details>
 
 ---
 
-**Ready to master modal editing?** Start with [Lesson 1: Modes](modes.md)
+**Ready to start?** → [Lesson 1: Understanding Modes](modes.md)

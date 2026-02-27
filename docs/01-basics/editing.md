@@ -356,10 +356,10 @@ Using the same file:
 
 ## Building Muscle Memory
 
-**Day 1-3**: Focus on `d`, `c`, `y`, `p` with basic motions (`w`, `$`, `j`)
-**Day 4-7**: Add text objects (`iw`, `i"`, `i(`)
-**Week 2**: Practice dot command and combining operations
-**Week 3**: Add registers and advanced text objects
+**Phase 1**: Focus on `d`, `c`, `y`, `p` with basic motions (`w`, `$`, `j`)
+**Phase 2**: Add text objects (`iw`, `i"`, `i(`)
+**Phase 3**: Practice dot command and combining operations
+**Phase 4**: Add registers and advanced text objects
 
 Practice daily on real code.
 

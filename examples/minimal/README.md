@@ -1,10 +1,17 @@
 # Minimal Neovim Configuration
 
+**👈 START HERE IF YOU'RE NEW!**
+
 The absolute bare minimum to get started with Neovim. No plugins, just essential settings and keybindings. Perfect for beginners or when you need a lightweight config.
 
-## Philosophy
+## Why Start Here?
 
-This config demonstrates that Neovim is powerful even without plugins. Learn the fundamentals first, then add plugins only when you understand what problems they solve.
+**Zero distractions** - No plugins, no complexity, just learn Neovim itself  
+**Fast** - Instant startup, no waiting  
+**Educational** - See what Neovim can do without any plugins  
+**Foundation** - Learn the fundamentals first, add plugins later when you understand what problems they solve
+
+**Use this config for your first 1-2 weeks** before moving to more complex setups.
 
 ## What's Included
 
@@ -78,27 +85,27 @@ nvim
 
 Use this config to master Neovim basics before adding complexity.
 
-### Week 1: Modal Editing
+### Phase 1: Modal Editing
 1. **Stay in Normal mode**: Resist the urge to stay in Insert mode
 2. **Practice movements**: `h j k l` (left, down, up, right)
 3. **Word navigation**: `w` (next word), `b` (back word), `e` (end word)
 4. **Line navigation**: `0` (start), `^` (first char), `$` (end)
 5. **File navigation**: `gg` (top), `G` (bottom), `{number}G` (go to line)
 
-### Week 2: Operators
+### Phase 2: Operators
 1. **Delete**: `dd` (line), `dw` (word), `d$` (to end of line)
 2. **Change**: `cc` (line), `cw` (word), `ciw` (inner word)
 3. **Yank (copy)**: `yy` (line), `yiw` (word)
 4. **Paste**: `p` (after), `P` (before)
 5. **Undo/Redo**: `u` (undo), `Ctrl-r` (redo)
 
-### Week 3: Visual Mode & Search
+### Phase 3: Visual Mode & Search
 1. **Visual select**: `v` (character), `V` (line), `Ctrl-v` (block)
 2. **Search**: `/pattern` (forward), `?pattern` (backward)
 3. **Navigate matches**: `n` (next), `N` (previous)
 4. **Replace**: `:%s/old/new/g` (file-wide), `:s/old/new/g` (line)
 
-### Week 4: Splits & Files
+### Phase 4: Splits & Files
 1. **Split windows**: `:split` (horizontal), `:vsplit` (vertical)
 2. **Navigate splits**: `Ctrl-h/j/k/l` (using config keybindings)
 3. **Close split**: `:q` or `Ctrl-w q`

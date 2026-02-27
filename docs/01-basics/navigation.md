@@ -297,10 +297,10 @@ Navigate to a function definition:
 
 ## Building Muscle Memory
 
-**Week 1**: Focus only on `hjkl`, `w`, `b`, `0`, `$`
-**Week 2**: Add `f`, `t`, `/`, `*`
-**Week 3**: Add `gg`, `G`, `{`, `}`
-**Week 4**: Add marks, jumps, and advanced movements
+**Phase 1**: Focus only on `hjkl`, `w`, `b`, `0`, `$`
+**Phase 2**: Add `f`, `t`, `/`, `*`
+**Phase 3**: Add `gg`, `G`, `{`, `}`
+**Phase 4**: Add marks, jumps, and advanced movements
 
 Don't try to learn everything at once.
 

@@ -1,351 +1,301 @@
 # Learn Neovim
 
-> A structured, comprehensive guide to mastering Neovim from beginner to advanced.
+> Your friendly guide to learning Neovim, one step at a time.
 
 [![Neovim](https://img.shields.io/badge/Neovim-0.9+-green.svg)](https://neovim.io)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-**Learn Neovim** is a complete learning path for Neovim with clear documentation, practical exercises, working examples, and real-world workflows. This is not a Neovim distribution or pre-built config—it's a curated educational resource to help you build your own perfect setup.
+**New to Neovim?** You're in the right place! This guide teaches you Neovim from scratch with clear lessons, practical exercises, and real examples. No experience required.
 
-## 🎯 What You'll Learn
+## ⚡ Your First Hour with Neovim
 
-- **Fundamentals**: Modal editing, motions, and Vim's composable language
-- **Configuration**: Build your own `init.lua` from scratch
-- **Plugin Management**: Install and configure essential plugins with lazy.nvim
-- **LSP Integration**: Transform Neovim into a full IDE with language servers
-- **Advanced Techniques**: Lua scripting, autocommands, and custom functions
-- **Complete Workflows**: Git integration, debugging, testing, and project-specific configs
+### Survival Commands (Memorize These First!)
 
-## 👥 Who This Is For
+```
+i           Start typing (INSERT mode)
+Esc         Stop typing (NORMAL mode)
+:wq         Save and quit
+:q!         Quit without saving (emergency exit!)
+u           Undo
+```
 
-- ✅ **Beginners**: Never used Vim or Neovim before
-- ✅ **Vim Users**: Want to migrate to Neovim and use modern features
-- ✅ **IDE Users**: Coming from VSCode, JetBrains, etc.
-- ✅ **Curious Developers**: Want to understand their editor deeply
-- ✅ **Efficiency Seekers**: Want to code faster and more efficiently
+**That's it!** Everything else can wait. These 5 commands are your lifeline.
 
-## 🚀 Quick Start
-
-### Try an Example Config (No Installation Required)
+### Try Neovim Right Now (5 Minutes)
 
 ```bash
-# Clone the repository
+# Option 1: Just open Neovim (if installed)
+nvim
+
+# Option 2: Try our minimal config (no plugins, perfect for learning)
 git clone https://github.com/ocrosby/learn-neovim.git
 cd learn-neovim
-
-# Try the basic example
-nvim -u examples/basic/init.lua
-
-# Or try the minimal example (no plugins)
 nvim -u examples/minimal/init.lua
 ```
 
-### Start the Learning Path
+**Once inside Neovim:** Type `:Tutor` and press Enter. This 30-minute interactive tutorial teaches you the basics.
 
-1. **Install Neovim** (if you haven't): [Installation Guide](docs/00-introduction/installation.md)
-2. **Start with Module 0**: [Introduction](docs/00-introduction/README.md)
-3. **Work through modules** in order
-4. **Try example configs** as you progress
-5. **Build your own config** using what you've learned
+🚀 **[Complete Getting Started Guide →](docs/GETTING_STARTED.md)** - All onboarding paths in one place!
 
-## 📚 Learning Modules
+Or jump to specific guides:
+- 📄 [QUICKSTART](docs/QUICKSTART.md) - First hour guide with printable cheatsheet
+- 📋 [First Week Checklist](docs/FIRST_WEEK_CHECKLIST.md) - Day-by-day plan
+- 🗺️ [Which Path?](docs/WHICH_PATH.md) - Find your learning path
+
+### 🆘 I'm Stuck!
+
+**Can't type?** Press `i` to enter INSERT mode  
+**Have random characters?** Press `Esc` to get back to NORMAL mode  
+**Can't quit?** Press `Esc`, then type `:q!` and press Enter  
+**Messed something up?** Press `Esc`, then press `u` to undo  
+**Screen is frozen?** You probably pressed `Ctrl-s` by accident - press `Ctrl-q`
+
+### Your First Day Plan
+
+**Hour 1:** Run `:Tutor` inside Neovim (30 min), then practice what you learned  
+**Hour 2:** Open a scratch file and practice basic navigation  
+**Hour 3:** Try editing one real file from your work  
+
+**Days 2-7:** Use Neovim for ONE small task each day. Just one! Build the muscle memory slowly.
+
+**Reality check:** You'll feel slower for 2-3 days. This is completely normal. By day 4-5, things start clicking.
+
+---
+
+Not ready to try yet? [Learn what Neovim is first](#-what-is-neovim)
+
+## 👥 Is This For You?
+
+- ✅ Never used Vim or Neovim before
+- ✅ Coming from VSCode, Sublime, or other editors
+- ✅ Want to code more efficiently
+- ✅ Curious about modal editing
+- ✅ Want to understand your tools deeply
+
+**You don't need:** Prior Vim experience, Lua knowledge, or programming expertise beyond the basics.
+
+## ⏱️ Realistic Timeline
+
+- **1 hour:** Know the survival commands, complete `:Tutor`
+- **1 day:** Can edit files (slowly and awkwardly)
+- **3 days:** The "aha!" moment - modal editing starts making sense
+- **1 week:** Functional and no longer fighting the editor
+- **2 weeks:** Comfortable and approaching your old speed
+- **1 month:** Faster than before and wondering why you waited so long
+
+**The hardest part is days 1-3.** If you push through, you'll never look back.
+
+## 🎯 What You'll Build
+
+By following this guide, you'll:
+
+1. **Learn modal editing** - Navigate and edit text efficiently
+2. **Build your own config** - Create a setup that's perfect for you
+3. **Add IDE features** - Code completion, go-to-definition, and more
+4. **Master your workflow** - Git, debugging, and testing integration
+
+## 📖 Learning Path
+
+### Complete Beginner? Start Here 👇
+
+**Step 1:** [Installation & Setup](docs/00-introduction/installation.md) (10 minutes)  
+**Step 2:** Run `:Tutor` inside Neovim (30 minutes)  
+**Step 3:** [Module 1: Basics](docs/01-basics/) (practice over 3-7 days)  
+
+**That's your first week.** Don't skip ahead!
+
+### After You're Comfortable
+
+**Week 2+:** [Module 2: Intermediate](docs/02-intermediate/) - Text objects and powerful commands  
+**Week 3+:** [Module 3: Configuration](docs/03-configuration/) - Build your own config  
+**Week 4+:** [Module 4: Plugins](docs/04-plugin-management/) - Add features  
+**Week 5+:** [Module 5: LSP](docs/05-lsp/) - Get IDE features  
+**Week 6+:** [Modules 6-7: Advanced](docs/06-advanced/) - Master everything
+
+<details>
+<summary>📊 See detailed module breakdown</summary>
+
 
 ### [Module 0: Introduction](docs/00-introduction/)
-- Why Neovim?
-- Installation for macOS, Linux, Windows
-- First-time setup
-
-**Time**: 30 minutes
+Why Neovim, installation, and first-time setup.
 
 ### [Module 1: Basics](docs/01-basics/)
-- Understanding modes (Normal, Insert, Visual, Command)
-- Navigation with `hjkl` and motions
-- Basic editing commands
-- Working with files and buffers
-
-**Time**: 2-3 hours | **Exercises**: 15+
+Modes, navigation, and basic editing. **Start here if Neovim is already installed.**
 
 ### [Module 2: Intermediate](docs/02-intermediate/)
-- Text objects (`iw`, `ap`, `i"`, etc.)
-- Operators and motions (`d`, `c`, `y`)
-- Registers and the clipboard
-- Macros for repetitive tasks
-
-**Time**: 2-3 hours | **Exercises**: 12+
+Text objects, operators, registers, and macros.
 
 ### [Module 3: Configuration](docs/03-configuration/)
-- Understanding `init.lua`
-- Setting options (`vim.opt`)
-- Creating keymaps (`vim.keymap.set`)
-- Configuration best practices
-
-**Time**: 1-2 hours
+Build your `init.lua` config from scratch.
 
 ### [Module 4: Plugin Management](docs/04-plugin-management/)
-- Installing lazy.nvim
-- Essential plugins (Telescope, nvim-tree, Treesitter, etc.)
-- Plugin configuration patterns
-- Lazy loading for performance
+Add plugins with lazy.nvim.
 
-**Time**: 2-3 hours
-
-### [Module 5: LSP (Language Server Protocol)](docs/05-lsp/)
-- What is LSP and why it matters
-- Installing language servers with Mason
-- Configuring LSP features
-- Autocompletion with nvim-cmp
-
-**Time**: 2-4 hours
+### [Module 5: LSP](docs/05-lsp/)
+Get IDE features with language servers.
 
 ### [Module 6: Advanced](docs/06-advanced/)
-- Lua scripting for Neovim
-- Creating autocommands
-- Building custom functions
-- Understanding the Neovim API
-
-**Time**: 3-5 hours
+Lua scripting and custom functions.
 
 ### [Module 7: Workflows](docs/07-workflows/)
-- Git integration (gitsigns, fugitive, diffview)
-- Debugging with nvim-dap
-- Testing with neotest
-- Project-specific configurations
+Git, debugging, and testing integration.
 
-**Time**: 3-4 hours
+</details>
 
-**Total Learning Time**: 15-25 hours spread over several weeks
+## 💻 Example Configs You Can Try
 
-## 💻 Example Configurations
+<details>
+<summary>🔍 View all example configurations</summary>
 
-Ready-to-use configs you can try immediately:
-
-### [Minimal](examples/minimal/) - 31 lines, 0 plugins
-Perfect for learning core Vim/Neovim without distractions.
-
+### [Minimal](examples/minimal/) - 31 lines, no plugins
+Perfect for learning without distractions.
 ```bash
 nvim -u examples/minimal/init.lua
 ```
 
-### [Basic](examples/basic/) - ~300 lines, 14 plugins
-Complete, modern setup with LSP, fuzzy finding, Git integration.
-
+### [Basic](examples/basic/) - Complete starter config
+Modern setup with LSP, fuzzy finding, and Git.
 ```bash
 nvim -u examples/basic/init.lua
 ```
 
-### [Python Development](examples/python-dev/) - ~350 lines, 17 plugins
-Optimized for Python with pytest, debugging, virtual env support.
-
+### [Python Development](examples/python-dev/)
+Python-specific with testing and debugging.
 ```bash
 nvim -u examples/python-dev/init.lua
 ```
 
-### [Web Development](examples/web-dev/) - ~340 lines, 18 plugins
-Built for JavaScript/TypeScript/React with ESLint, Tailwind, Jest.
-
+### [Web Development](examples/web-dev/)
+JavaScript/TypeScript/React optimized.
 ```bash
 nvim -u examples/web-dev/init.lua
 ```
 
 [See all examples →](examples/)
 
-## 📖 Resources
+</details>
 
-### Cheatsheets
-- [Basic Commands](resources/cheatsheets/basics.md) - Essential Vim/Neovim commands
+## ❓ Common Questions
 
-### External Resources
-- [Articles](resources/articles.md) - Curated blog posts and guides
-- [Videos](resources/videos.md) - YouTube tutorials and screencasts
-- [Communities](resources/communities.md) - Where to get help and connect
+### How long until I'm productive?
 
-## 🎓 Learning Philosophy
+**1 day:** Can use it (uncomfortably)  
+**1 week:** Functional for daily work  
+**2 weeks:** Comfortable and approaching old speed  
 
-This resource follows these principles:
+You'll be slower for the first few days—this is normal and temporary!
 
-### 1. **Progressive Learning**
-Start with basics, gradually add complexity. No overwhelming config dumps.
+### Should I commit fully or gradually switch?
 
-### 2. **Understanding Over Copying**
-Learn *why* things work, not just *what* to copy-paste.
+**Gradually!** Start with one small task per day. Use your old editor when you're under pressure. No need to go cold turkey.
 
-### 3. **Hands-On Practice**
-Every module includes exercises and practical examples.
+### Do I need to know Vim?
 
-### 4. **Build Your Own**
-Create your personalized config from scratch, understanding every line.
+Nope! This guide assumes zero Vim experience.
 
-### 5. **Well-Documented**
-Clear explanations with links to official docs for deeper learning.
+### Do I need to know Lua?
 
-## 🗺️ Recommended Learning Path
+No—we teach you the Lua you need as you go.
 
-### Week 1-2: Fundamentals
-- Complete Modules 0-1 (Introduction & Basics)
-- Use the [minimal config](examples/minimal/)
-- Focus on staying in Normal mode
-- Practice basic motions daily
+### Can I still use VSCode?
 
-### Week 3-4: Intermediate Skills
-- Complete Module 2 (Intermediate)
-- Learn text objects and operators
-- Start using macros
-- Continue with minimal config
+Absolutely! Many developers use both. Try Neovim for remote editing or when you want speed.
 
-### Week 5-6: Configuration & Plugins
-- Complete Modules 3-4 (Configuration & Plugin Management)
-- Switch to [basic config](examples/basic/)
-- Add plugins one at a time
-- Understand what each plugin does
+### What if I get stuck?
 
-### Week 7-8: IDE Features
-- Complete Module 5 (LSP)
-- Set up language servers for your languages
-- Configure autocompletion
-- Learn LSP keybindings
+- Press `Esc` then type `:help <topic>` inside Neovim
+- Check the [🆘 I'm Stuck!](#-im-stuck) section above
+- Ask in [communities](resources/communities.md)
+- Open an issue in this repository
 
-### Week 9-10: Advanced & Workflows
-- Complete Modules 6-7 (Advanced & Workflows)
-- Try language-specific examples
-- Add debugging and testing
-- Create project-specific configs
+### When should I start customizing?
 
-### Ongoing: Mastery
-- Customize your config
-- Explore new plugins
-- Help others learn
-- Contribute back
+**Not yet!** Use vanilla Neovim (or our minimal config) for at least a week. Learn the fundamentals first, then customize.
 
-## 🛠️ Prerequisites
+<details>
+<summary>🛠️ What do I need installed?</summary>
 
 ### Required
 - **Neovim** 0.9.0 or newer
 - **Git**
-- **Terminal** that supports 256 colors
 
-### Recommended
-- **A Nerd Font** for icons (optional but nice)
-- **ripgrep** for fuzzy finding (`brew install ripgrep`)
-- **Node.js** for some LSP servers (web development)
-- **Python 3** for some LSP servers (Python development)
+### Optional (can add later)
+- **A Nerd Font** for icons
+- **ripgrep** for fuzzy finding
+- **Node.js** for web development
+- **Python 3** for Python development
 
-See [Installation Guide](docs/00-introduction/installation.md) for detailed setup.
+[Detailed installation guide →](docs/00-introduction/installation.md)
 
-## 📊 Repository Structure
+</details>
+
+<details>
+<summary>📖 Additional resources</summary>
+
+### Cheatsheets
+- [Basic Commands](resources/cheatsheets/basics.md)
+
+### External Resources
+- [Articles](resources/articles.md)
+- [Videos](resources/videos.md)
+- [Communities](resources/communities.md)
+
+</details>
+
+<details>
+<summary>📊 Repository structure</summary>
 
 ```
 learn-neovim/
-├── docs/                      # Learning modules
-│   ├── 00-introduction/       # Getting started
-│   ├── 01-basics/            # Fundamental concepts
-│   ├── 02-intermediate/      # Text objects, operators
-│   ├── 03-configuration/     # Understanding init.lua
-│   ├── 04-plugin-management/ # lazy.nvim and plugins
-│   ├── 05-lsp/              # Language Server Protocol
-│   ├── 06-advanced/         # Lua scripting
-│   └── 07-workflows/        # Git, debugging, testing
+├── docs/                      # Learning modules (0-7)
 ├── examples/                 # Ready-to-use configs
-│   ├── minimal/             # No plugins (31 lines)
-│   ├── basic/               # Complete starter (300 lines)
-│   ├── python-dev/          # Python optimized
-│   └── web-dev/             # Web development
-├── resources/               # Reference materials
-│   ├── cheatsheets/        # Quick references
-│   ├── articles.md         # Curated articles
-│   ├── videos.md           # Video tutorials
-│   └── communities.md      # Where to get help
+├── resources/               # Cheatsheets and references
 └── README.md               # You are here!
 ```
 
+</details>
+
 ## 🤝 Contributing
 
-Contributions are welcome! Whether it's:
+Found a typo? Have a suggestion? Want to share your learning experience? 
 
-- 🐛 Fixing typos or errors
-- 📝 Improving documentation
-- 💡 Suggesting new content
-- 🎓 Sharing your learning experience
-- 🔧 Adding example configs
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
-
-## ❓ FAQ
-
-### Is this a Neovim distribution like LazyVim or NvChad?
-
-No. This is an educational resource to help you build your own config. Distributions are great, but understanding how to build your own gives you complete control.
-
-### Do I need to know Vim first?
-
-No! This guide starts from the very beginning and assumes no Vim/Neovim experience.
-
-### Do I need to know Lua?
-
-No! We teach you the Lua you need as you go. You'll learn by doing.
-
-### Can I use this if I'm happy with VSCode?
-
-Absolutely! Many developers use both. Neovim excels at remote editing, efficient text manipulation, and can be faster once you master it.
-
-### How long does it take to become productive?
-
-- **Basic proficiency**: 2-4 weeks of daily use
-- **Comfortable**: 2-3 months
-- **Advanced**: 6-12 months
-- **Mastery**: Years (like any tool)
-
-The key is daily practice!
-
-### Do I need to use all the plugins?
-
-No! Start minimal and add only what you need. The example configs show different levels of complexity.
-
-### What if I get stuck?
-
-- Check the built-in help: `:help <topic>`
-- Read the relevant module
-- Ask in [communities](resources/communities.md)
-- Open an issue in this repository
-
-## 🙏 Acknowledgments
-
-This resource builds on the excellent work of the Neovim community:
-
-- [Neovim](https://neovim.io) core team
-- [lazy.nvim](https://github.com/folke/lazy.nvim) by folke
-- [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) for inspiration
-- ThePrimeagen, TJ DeVries, and other Neovim educators
-- The entire Vim and Neovim community
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-Feel free to use, modify, and share this resource however it helps you learn!
-
-## ⭐ Support This Project
-
-If this resource helped you learn Neovim:
-
-- ⭐ Star this repository
-- 🐦 Share it with others
-- 🤝 Contribute improvements
-- 💬 Share your success story
+See [CONTRIBUTING.md](CONTRIBUTING.md) for how to help make this guide better.
 
 ## 🚦 Ready to Start?
 
-Begin your Neovim journey:
+### Absolute Beginner Path
 
-**→ [Start with Module 0: Introduction](docs/00-introduction/README.md)**
+1. **Install Neovim:** [Installation Guide](docs/00-introduction/installation.md)
+2. **Learn survival commands:** Scroll back up to [Your First Hour](#-your-first-hour-with-neovim)
+3. **Run `:Tutor`:** Open Neovim and type `:Tutor` then press Enter
+4. **Practice daily:** Even just 15 minutes on real work
 
-Or jump straight to trying an example:
+### Quick Start (Neovim Already Installed)
+
+```bash
+# Just open Neovim and run the tutorial
+nvim
+# Inside Neovim, type: :Tutor
+```
+
+### Try Our Minimal Config (Recommended)
 
 ```bash
 git clone https://github.com/ocrosby/learn-neovim.git
 cd learn-neovim
-nvim -u examples/basic/init.lua
+nvim -u examples/minimal/init.lua
+# Inside Neovim, type: :Tutor
 ```
 
 ---
 
-**Happy learning!** Remember: everyone starts as a beginner. Take it step by step, practice daily, and you'll be amazed at how productive you can become. 🚀
+**Remember:** Days 1-3 are the hardest. By day 4-5, it clicks. Stick with it! 🚀
+
+<details>
+<summary>📄 License & Acknowledgments</summary>
+
+MIT License - use, modify, and share freely!
+
+Thanks to the Neovim community, lazy.nvim, kickstart.nvim, and all the educators who make learning Neovim accessible.
+
+</details>
